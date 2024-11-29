@@ -37,10 +37,10 @@ const Navbar = ({ toggleSidebar }) => {
         <input
           type="text"
           placeholder="Search..."
-          className="p-2 pl-10 pr-4 bg-white text-black rounded-md focus:outline-none"
+          className="p-2 pl-10 pr-4 bg-gray-700 text-white rounded-md focus:outline-none"
         />
-        <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black">
-          <FontAwesomeIcon icon={faSearch} className="text-black" />
+        <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white">
+          <FontAwesomeIcon icon={faSearch} className="text-white" />
         </span>
       </div>
     </div>

@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faInfoCircle, faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlay,
+  faInfoCircle,
+  faArrowLeft,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Carousel = () => {
   const [spotLight, setSpotLight] = useState([]);
@@ -29,18 +34,18 @@ const Carousel = () => {
     fetchSpotLight();
   }, []);
 
-const nextSlide = () => {
-  setCurrentSlide((prev) => (prev + 1) % totalSlides);
-};
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
 
-const prevSlide = () => {
-  setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-};
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
 
-useEffect(() => {
-  const intervalId = setInterval(nextSlide, 5000);
-  return () => clearInterval(intervalId);
-}, [totalSlides]);
+  useEffect(() => {
+    const intervalId = setInterval(nextSlide, 5000);
+    return () => clearInterval(intervalId);
+  }, [totalSlides]);
 
   const truncateDescription = (description) => {
     const maxLength = 300;
@@ -52,34 +57,31 @@ useEffect(() => {
 
   return (
     <div className="relative overflow-hidden w-full">
-      {/* Carousel Wrapper */}
       <div
         className="flex transition-transform duration-500 ease-in-out"
         style={{
           transform: `translateX(-${currentSlide * 100}%)`,
         }}
       >
-        {/* Carousel Items */}
         {loading
-          ? // Skeleton loader
-            Array(3)
+          ? Array(3)
               .fill(0)
               .map((_, index) => (
                 <div
                   key={index}
-                  className="relative flex-shrink-0 w-full sm:h-[35rem] md:h-[40rem] flex items-center justify-center animate-pulse"
+                  className="relative flex-shrink-0 w-full sm:h-[20rem] md:h-[40rem] flex items-center justify-center animate-pulse"
                 >
-                  <div className="relative w-full h-full bg-gray-800">
-                    <div className="absolute inset-0 bg-gray-700"></div>
-                    <div className="relative z-10 text-white px-6 py-12 sm:px-8 sm:py-16 md:px-12 md:py-24">
-                      <div className="md:flex items-center justify-between">
-                        <div className="max-w-[35%] p-5">
-                          <div className="h-8 sm:h-12 bg-gray-600 rounded w-3/4 mb-4"></div>
-                          <div className="h-4 bg-gray-500 rounded w-1/2 mb-4"></div>
-                          <div className="h-16 bg-gray-600 rounded w-full mb-4"></div>
-                          <div className="mt-6 flex gap-4 flex-wrap">
-                            <div className="h-10 bg-gray-500 rounded w-32"></div>
-                            <div className="h-10 bg-gray-500 rounded w-32"></div>
+                  <div className="relative w-full h-full bg-gray-800 animate-fade-in duration-1000">
+                    <div className="absolute inset-0 bg-gray-700 animate-scale-up duration-1500"></div>
+                    <div className="relative z-10 text-white px-6 py-12 sm:px-8 sm:py-16 md:px-12 md:py-24 animate-slide-up duration-2000">
+                      <div className="md:flex items-center justify-between animate-fade-in-up duration-2500">
+                        <div className="max-w-[35%] p-5 animate-pulse duration-3000">
+                          <div className="h-8 sm:h-12 bg-gray-600 rounded w-3/4 mb-4 animate-pulse-fast duration-1000"></div>
+                          <div className="h-4 bg-gray-500 rounded w-1/2 mb-4 animate-pulse duration-2000"></div>
+                          <div className="h-16 bg-gray-600 rounded w-full mb-4 animate-fade-in-left duration-2500"></div>
+                          <div className="mt-6 flex gap-4 flex-wrap animate-fade-in-right duration-3000">
+                            <div className="h-10 bg-gray-500 rounded w-32 animate-pulse duration-3500"></div>
+                            <div className="h-10 bg-gray-500 rounded w-32 animate-pulse duration-4000"></div>
                           </div>
                         </div>
                       </div>
@@ -89,7 +91,7 @@ useEffect(() => {
               ))
           : spotLight.map((sp, index) => (
               <div
-                className="relative flex-shrink-0 w-full lg:h-[35rem] h-[30rem] sm:h-[20rem] md:h-[20rem] flex items-center justify-center"
+                className="relative flex-shrink-0 w-full lg:h-[35rem] h-[20rem] sm:h-[20rem] md:h-[20rem] flex items-center justify-center"
                 key={index}
               >
                 <div className="relative w-full h-full bg-black">
@@ -103,28 +105,32 @@ useEffect(() => {
                   ></div>
                   <div className="relative z-10 text-white px-6 py-12 sm:px-8 sm:py-16 md:px-12 md:py-24">
                     <div className="md:flex items-center justify-between">
-                      <div className="max-w-[35%] p-5">
+                      <div className="max-w-[60%] p-5">
                         <p className="lg:text-lg md:text-md sm:text-sm text-[#C31C2E] mt-2 font-bold">
                           #{index + 1} Spotlight
                         </p>
-                        <h3 className="lg:text-3xl md:text-2xl sm:text-sm font-bold">
+                        <h3 className="lg:text-3xl md:text-xl sm:text-lg font-bold">
                           {sp.title}
                         </h3>
-                        <p className="text-md mt-4 leading-relaxed max-w-sm">
+                        <p className="text-md mt-4 leading-relaxed text-white min-[768px]:hidden max-w-sm hidden md:block lg:block xl:block min-[1024px]:block ">
                           {truncateDescription(sp.description)}
                         </p>
-                        <div className="mt-6 flex gap-4 flex-wrap ">
-                          <button className="bg-[#C31C2E] text-white lg:py-2 lg:px-6 md:p-2 sm:p-2 rounded-full flex items-center mb-2 sm:mb-0">
+
+                        <div className="mt-6 flex">
+                          <a className="bg-[#C31C2E] font-semibold border-transparent border-2 text-white py-2 px-6 rounded-full flex items-center min-w-fit hover:border-[#C31C2E] hover:text-[#C31C2E] hover:bg-transparent hover:cursor-pointer ease-in-out duration-200 text-sm sm:text-md md:text-lg">
                             <FontAwesomeIcon icon={faPlay} className="mr-2" />
                             Watch Now
-                          </button>
-                          <button className="border-2 border-white text-white py-2 px-6 rounded-full flex items-center">
+                          </a>
+                          <a
+                            href=""
+                            className="ml-2 border-2 font-semibold border-white text-white py-2 px-6 rounded-full flex items-center text-sm sm:text-md md:text-lg"
+                          >
                             <FontAwesomeIcon
                               icon={faInfoCircle}
                               className="mr-2"
                             />
                             Detail
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -137,15 +143,19 @@ useEffect(() => {
       {/* Carousel Controls */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 hover:text-black hover:bg-[#C31C2E] ease-in-out duration-200 left-4 transform-translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-md"
+        className="absolute top-1/2 hover:text-black hover:bg-[#C31C2E] ease-in-out duration-200 left-4 transform-translate-y-1/2 text-white bg-black bg-opacity-50 p-4 rounded-md"
       >
-        <span className="text-xl"><FontAwesomeIcon icon={faArrowLeft} /></span>
+        <span className="text-xl">
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </span>
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 hover:text-black hover:bg-[#C31C2E] ease-in-out duration-200 right-4 transform-translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-md"
+        className="absolute top-1/2 hover:text-black hover:bg-[#C31C2E] ease-in-out duration-200 right-4 transform-translate-y-1/2 text-white bg-black bg-opacity-50 p-4 rounded-md"
       >
-        <span className="text-xl"><FontAwesomeIcon icon={faArrowRight} /></span>
+        <span className="text-xl">
+          <FontAwesomeIcon icon={faArrowRight} />
+        </span>
       </button>
     </div>
   );
