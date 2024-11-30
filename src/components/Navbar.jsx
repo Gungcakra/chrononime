@@ -31,7 +31,7 @@ const Navbar = ({ toggleSidebar }) => {
         <button onClick={toggleSidebar} className="text-2xl text-white">
           <FontAwesomeIcon icon={faBars} />
         </button>
-        <h1 className="text-3xl font-bold">Chrononime</h1>
+        <a href="/" className="text-3xl font-bold">Chrononime</a>
       </div>
       <div className="relative">
         <input

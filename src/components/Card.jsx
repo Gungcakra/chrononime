@@ -5,8 +5,9 @@ import {
   faMicrophone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
-const Card = ({ image, title, dub, sub }) => {
+const Card = ({ image, title, dub, sub, link }) => {
   const truncateTitle = (title) => {
     const maxLength = 18;
     if (title.length > maxLength) {
@@ -16,7 +17,10 @@ const Card = ({ image, title, dub, sub }) => {
   };
 
   return (
-    <div className="md:w-[10rem] h-[17rem] lg:h-[20rem] 2xs:w-[16rem] 2xl:w-[14rem] sm:w-[14rem] xs:w-[8rem] 3xl:w-[14rem] bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700">
+    <Link
+      to={`/anime/${link}`}
+      className="md:w-[10rem] h-[17rem] lg:h-[20rem] 2xs:w-[16rem] 2xl:w-[14rem] sm:w-[14rem] xs:w-[8rem] 3xl:w-[14rem] bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700"
+    >
       {/* Image section */}
       <div className="h-[80%] w-full p-0">
         <a href="#">
@@ -48,7 +52,7 @@ const Card = ({ image, title, dub, sub }) => {
           </div>
         </a>
       </div>
-    </div>
+    </Link>
   );
 };
 

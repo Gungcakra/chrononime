@@ -8,6 +8,7 @@ import Skeletoncard from "../components/Skeletoncard";
 import Smallcard from "../components/Smallcard";
 import { Skeletonsmallcard } from "../components/Skeletonsmallcard";
 import "../style/Home.css";
+import Footer from "../components/Footer";
 function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -74,7 +75,7 @@ function Home() {
         <div className="flex flex-col md:flex-row gap-10 py-4">
           <div className="flex-2">
             <p className="text-[#C31C2E] font-bold text-2xl py-2">New Update</p>
-            <div className="grid grid-cols-6 gap-x-3 transition-all duration-300 ease-in-out max-[1400px]:grid-cols-4 max-[758px]:grid-cols-3 max-[478px]:grid-cols-2">
+            <div className="grid grid-cols-6 gap-x-3 transition-all duration-300 ease-in-out max-[1400px]:grid-cols-6 max-[758px]:grid-cols-3 max-[478px]:grid-cols-2">
               {loading
                 ? Array.from({ length: 35 }, (_, index) => (
                     <Skeletoncard key={index} />
@@ -88,6 +89,7 @@ function Home() {
                         title={anime.title}
                         dub={anime.tvInfo.dub}
                         sub={anime.tvInfo.sub}
+                        link={anime.id}
                       />
                     ))}
             </div>
@@ -111,6 +113,7 @@ function Home() {
                         title={tren.title}
                         dub={tren.tvInfo.dub}
                         sub={tren.tvInfo.sub}
+                        link={tren.id}
                       />
                     ))}
             </div>
@@ -130,6 +133,7 @@ function Home() {
             </div> */}
           </div>
         </div>
+      <Footer />
       </div>
     </div>
   );

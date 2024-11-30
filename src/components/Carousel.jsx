@@ -77,11 +77,11 @@ const Carousel = () => {
                       <div className="md:flex items-center justify-between animate-fade-in-up duration-2500">
                         <div className="max-w-[35%] p-5 animate-pulse duration-3000">
                           <div className="h-8 sm:h-12 bg-gray-600 rounded w-3/4 mb-4 animate-pulse-fast duration-1000"></div>
-                          <div className="h-4 bg-gray-500 rounded w-1/2 mb-4 animate-pulse duration-2000"></div>
+                          <div className="h-4 bg-gray-500 rounded w-1/2 mb-4 animate-pulse   duration-2000"></div>
                           <div className="h-16 bg-gray-600 rounded w-full mb-4 animate-fade-in-left duration-2500"></div>
                           <div className="mt-6 flex gap-4 flex-wrap animate-fade-in-right duration-3000">
                             <div className="h-10 bg-gray-500 rounded w-32 animate-pulse duration-3500"></div>
-                            <div className="h-10 bg-gray-500 rounded w-32 animate-pulse duration-4000"></div>
+                            <div className="h-10 bg-gray-500 rounded w-32 animate-pulse  duration-4000"></div>
                           </div>
                         </div>
                       </div>
@@ -122,8 +122,8 @@ const Carousel = () => {
                             Watch Now
                           </a>
                           <a
-                            href=""
-                            className="ml-2 border-2 font-semibold border-white text-white py-2 px-6 rounded-full flex items-center text-sm sm:text-md md:text-lg"
+                            href={`/anime/${sp.id}`}
+                            className="ml-2 border-2 font-semibold border-white text-white py-2 px-6 rounded-full flex items-center text-sm sm:text-md md:text-lg hover:bg-white hover:text-black duration-200 ease-in-out"
                           >
                             <FontAwesomeIcon
                               icon={faInfoCircle}
