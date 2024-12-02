@@ -91,10 +91,10 @@ const Carousel = () => {
               ))
           : spotLight.map((sp, index) => (
               <div
-                className="relative flex-shrink-0 w-full lg:h-[35rem] h-[20rem] sm:h-[20rem] md:h-[20rem] flex items-center justify-center"
+                className="relative flex-shrink-0 w-full lg:h-[35rem] h-[20rem] sm:h-[30rem] md:h-[20rem] flex items-center justify-center"
                 key={index}
               >
-                <div className="relative w-full h-full bg-black">
+                <div className="relative min-w-full h-full bg-black sm:flex sm:items-center">
                   <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
@@ -112,7 +112,7 @@ const Carousel = () => {
                         <h3 className="lg:text-3xl md:text-xl sm:text-lg font-bold">
                           {sp.title}
                         </h3>
-                        <p className="text-md mt-4 leading-relaxed text-white min-[768px]:hidden max-w-sm hidden md:block lg:block xl:block min-[1024px]:block ">
+                        <p className="text-md mt-4 leading-relaxed text-white min-[768px]:hidden max-w-xl hidden md:block lg:block xl:block min-[1024px]:block ">
                           {truncateDescription(sp.description)}
                         </p>
 

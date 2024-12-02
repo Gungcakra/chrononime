@@ -16,10 +16,11 @@ const Card = ({ image, title, dub, sub, link }) => {
     return title;
   };
 
+  
   return (
     <Link
       to={`/anime/${link}`}
-      className="md:w-[10rem] h-[17rem] lg:h-[20rem] 2xs:w-[16rem] 2xl:w-[14rem] sm:w-[14rem] xs:w-[8rem] 3xl:w-[14rem] bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700"
+      className="md:w-[10rem] h-[17rem] lg:h-[20rem] 2xs:w-[16rem] 2xl:w-[14rem] sm:w-[14rem] xs:w-[8rem] 3xl:w-[14rem] bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700 rounded-md"
     >
       {/* Image section */}
       <div className="h-[80%] w-full p-0">

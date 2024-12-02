@@ -50,7 +50,7 @@ function Home() {
       <div className="bg-black w-full">
         <Carousel />
 
-        <div className="flex overflow-scroll whitespace-nowrap hide-scrollbar">
+        {/* <div className="flex overflow-scroll whitespace-nowrap hide-scrollbar">
           {loading
             ? Array.from({ length: 35 }, (_, index) => (
                 <a
@@ -70,11 +70,11 @@ function Home() {
                   {item}
                 </a>
               ))}
-        </div>
+        </div> */}
 
-        <div className="flex flex-col md:flex-row gap-10 py-4">
+        <div className="flex flex-col md:flex-row gap-10 py-4 justify-center">
           <div className="flex-2">
-            <p className="text-[#C31C2E] font-bold text-2xl py-2">New Update</p>
+            <p className="text-red-600 font-bold text-2xl py-2">New Update</p>
             <div className="grid grid-cols-6 gap-x-3 transition-all duration-300 ease-in-out max-[1400px]:grid-cols-6 max-[758px]:grid-cols-3 max-[478px]:grid-cols-2">
               {loading
                 ? Array.from({ length: 35 }, (_, index) => (
@@ -96,7 +96,7 @@ function Home() {
           </div>
 
           <div className="md:w-1/5 lg:w-1/4 xl:w-1/5">
-            <p className="text-[#C31C2E] font-bold text-2xl py-2">
+            <p className="text-red-600 font-bold text-2xl py-2">
               Most Favorite
             </p>
             <div className="flex flex-col gap-2">
@@ -117,7 +117,7 @@ function Home() {
                       />
                     ))}
             </div>
-            {/* <p className="text-[#C31C2E] font-bold text-4xl py-2 mt-4">
+            {/* <p className="text-red-600 font-bold text-4xl py-2 mt-4">
               Genres
             </p>
             <div className="flex flex-wrap mt-1">
@@ -126,7 +126,7 @@ function Home() {
             )):(
               home.genres.map((gen,index) => (
 
-              <a href="" className=" bg-[#C31C2E] text-white p-1 m-1 rounded-md" key={index}>{gen}</a>
+              <a href="" className=" bg-red-600 text-white p-1 m-1 rounded-md" key={index}>{gen}</a>
               ))
 
             ) }
